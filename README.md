@@ -1,1 +1,0 @@
-# guardia_arq-huelga2026
