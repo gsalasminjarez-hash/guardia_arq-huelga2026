@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rol de Guardias – Huelga Mayo 2026</title>
+<title>Rol de Guardias – Huelga 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -57,7 +57,6 @@
 
   .container { max-width: 480px; margin: 0 auto; padding: 0 16px; }
 
-  /* SEARCH */
   .search-section { padding: 24px 0 12px; }
 
   .search-label {
@@ -68,10 +67,6 @@
     color: var(--muted);
     margin-bottom: 10px;
     display: block;
-  }
-
-  .search-box {
-    position: relative;
   }
 
   .search-box input {
@@ -87,13 +82,9 @@
     transition: border-color 0.2s;
   }
 
-  .search-box input:focus {
-    border-color: var(--accent);
-  }
-
+  .search-box input:focus { border-color: var(--accent); }
   .search-box input::placeholder { color: var(--muted); }
 
-  /* NAME LIST */
   .names-list {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -118,20 +109,10 @@
   .name-item:last-child { border-bottom: none; }
   .name-item:hover, .name-item:active { background: var(--surface2); }
 
-  .name-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
+  .name-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
-  .brigade-tag {
-    font-size: 0.7rem;
-    color: var(--muted);
-    margin-left: auto;
-    white-space: nowrap;
-  }
+  .brigade-tag { font-size: 0.7rem; color: var(--muted); margin-left: auto; white-space: nowrap; }
 
-  /* PROFILE VIEW */
   .profile { display: none; padding-top: 8px; }
   .profile.active { display: block; }
 
@@ -175,7 +156,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* COUNTDOWN */
   .countdown-card {
     border-radius: var(--radius);
     padding: 20px;
@@ -183,6 +163,7 @@
     border: 1px solid var(--border);
     position: relative;
     overflow: hidden;
+    background: var(--surface);
   }
 
   .countdown-card::before {
@@ -210,11 +191,7 @@
     line-height: 1;
   }
 
-  .countdown-detail {
-    font-size: 0.82rem;
-    color: var(--muted);
-    margin-top: 8px;
-  }
+  .countdown-detail { font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
 
   .on-duty {
     color: var(--accent2);
@@ -229,7 +206,17 @@
     50% { opacity: 0.6; }
   }
 
-  /* SHIFTS LIST */
+  .month-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 20px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
   .shifts-title {
     font-family: 'Syne', sans-serif;
     font-size: 0.7rem;
@@ -255,10 +242,7 @@
   .shift-card.next { border-color: var(--accent); }
   .shift-card.active-now { border-color: var(--accent2); background: rgba(232,125,71,0.08); }
 
-  .shift-date-block {
-    text-align: center;
-    min-width: 44px;
-  }
+  .shift-date-block { text-align: center; min-width: 44px; }
 
   .shift-day-num {
     font-family: 'Syne', sans-serif;
@@ -270,49 +254,22 @@
 
   .shift-card.active-now .shift-day-num { color: var(--accent2); }
 
-  .shift-day-name {
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-  }
+  .shift-day-name { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 
   .shift-info { flex: 1; }
 
-  .shift-time {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
+  .shift-time { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 2px; }
 
-  .shift-date-full {
-    font-size: 0.78rem;
-    color: var(--muted);
-  }
+  .shift-date-full { font-size: 0.78rem; color: var(--muted); }
 
-  .shift-badge {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 20px;
-  }
+  .shift-badge { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; }
 
   .badge-next { background: rgba(232,197,71,0.15); color: var(--accent); }
   .badge-now  { background: rgba(232,125,71,0.2); color: var(--accent2); }
   .badge-done { background: rgba(107,114,128,0.15); color: var(--muted); }
 
-  /* EMPTY */
-  .empty {
-    text-align: center;
-    padding: 40px 20px;
-    color: var(--muted);
-    font-size: 0.9rem;
-  }
+  .empty { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 0.9rem; }
 
-  /* scrollbar */
   .names-list::-webkit-scrollbar { width: 4px; }
   .names-list::-webkit-scrollbar-track { background: transparent; }
   .names-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
@@ -322,12 +279,10 @@
 
 <header>
   <h1>⚑ Rol de Guardias</h1>
-  <p>Huelga · Mayo 2026</p>
+  <p>Huelga · Mayo–Junio 2026</p>
 </header>
 
 <div class="container">
-
-  <!-- SEARCH VIEW -->
   <div id="searchView">
     <div class="search-section">
       <span class="search-label">Busca tu nombre</span>
@@ -338,7 +293,6 @@
     <div class="names-list" id="namesList"></div>
   </div>
 
-  <!-- PROFILE VIEW -->
   <div class="profile" id="profileView">
     <button class="back-btn" onclick="goBack()">← Volver</button>
     <div class="profile-header" id="profileHeader"></div>
@@ -346,11 +300,9 @@
     <div class="shifts-title">Todos tus turnos</div>
     <div id="shiftsList"></div>
   </div>
-
 </div>
 
 <script>
-// ── DATA ────────────────────────────────────────────────────────────
 const BRIGADE_COLORS = {
   "Brigada 01": {bg:"#1F7A4A", fg:"#FFFFFF"},
   "Brigada 02": {bg:"#4472C4", fg:"#FFFFFF"},
@@ -405,15 +357,16 @@ const TURNOS = [
 const DAYS_ES = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
 const MONTHS_ES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
 
-// Build slot map: key = "YYYY-MM-DD-turno" → brigade
 function buildSlotMap() {
   const map = {};
-  const start = new Date(2026, 4, 14); // May 14
-  const end   = new Date(2026, 4, 31); // May 31
+  const start = new Date(2026, 4, 14);
+  const end   = new Date(2026, 5, 30); // June 30
   let cycleIdx = 0;
+  let firstDay = true;
 
   for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-    const startTurno = (d.getTime() === start.getTime()) ? 3 : 0;
+    const startTurno = firstDay ? 3 : 0;
+    firstDay = false;
     for (let t = startTurno; t < 4; t++) {
       const key = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}-${t}`;
       map[key] = CYCLE[cycleIdx % CYCLE.length];
@@ -425,21 +378,18 @@ function buildSlotMap() {
 
 const slotMap = buildSlotMap();
 
-// Get all shifts for a brigade
 function getShiftsForBrigade(brigade) {
   const shifts = [];
   for (const [key, brig] of Object.entries(slotMap)) {
     if (brig === brigade) {
       const [y, m, d, t] = key.split('-').map(Number);
-      const date = new Date(y, m-1, d);
-      shifts.push({ date, turnoIdx: t, turno: TURNOS[t] });
+      shifts.push({ date: new Date(y, m-1, d), turnoIdx: t, turno: TURNOS[t] });
     }
   }
   shifts.sort((a,b) => a.date - b.date || a.turnoIdx - b.turnoIdx);
   return shifts;
 }
 
-// Build person → brigade map
 const personBrigade = {};
 for (const [brig, members] of Object.entries(BRIGADES)) {
   for (const name of members) personBrigade[name] = brig;
@@ -447,26 +397,19 @@ for (const [brig, members] of Object.entries(BRIGADES)) {
 
 const allNames = Object.keys(personBrigade).sort();
 
-// ── UI ──────────────────────────────────────────────────────────────
 const searchInput = document.getElementById('searchInput');
 const namesList   = document.getElementById('namesList');
 const searchView  = document.getElementById('searchView');
 const profileView = document.getElementById('profileView');
-
 let countdownInterval = null;
 
 function renderNames(filter = '') {
   const q = filter.toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-  const filtered = allNames.filter(n => {
-    const normalized = n.normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-    return normalized.includes(q);
-  });
-
+  const filtered = allNames.filter(n => n.normalize("NFD").replace(/[\u0300-\u036f]/g,"").includes(q));
   if (filtered.length === 0) {
     namesList.innerHTML = `<div class="empty">No se encontró ningún nombre</div>`;
     return;
   }
-
   namesList.innerHTML = filtered.map(name => {
     const brig = personBrigade[name];
     const col = BRIGADE_COLORS[brig];
@@ -489,17 +432,16 @@ function showProfile(name) {
   searchView.style.display = 'none';
   profileView.classList.add('active');
 
-  // Header
   document.getElementById('profileHeader').innerHTML = `
     <div class="profile-name">${name}</div>
     <span class="profile-brigade" style="background:${col.bg};color:${col.fg}">${brigade}</span>
   `;
 
-  renderShifts(shifts, col);
-  startCountdown(shifts, col);
+  renderShifts(shifts);
+  startCountdown(shifts);
 }
 
-function renderShifts(shifts, col) {
+function renderShifts(shifts) {
   const now = new Date();
   const list = document.getElementById('shiftsList');
 
@@ -508,54 +450,60 @@ function renderShifts(shifts, col) {
     return;
   }
 
-  list.innerHTML = shifts.map(s => {
-    const shiftStart = new Date(s.date.getFullYear(), s.date.getMonth(), s.date.getDate(), s.turno.start);
-    const shiftEnd   = new Date(s.date.getFullYear(), s.date.getMonth(), s.date.getDate(), s.turno.end === 24 ? 23 : s.turno.end);
-    if (s.turno.end === 24) shiftEnd.setMinutes(59,59);
+  // Group by month
+  const byMonth = {};
+  for (const s of shifts) {
+    const mk = s.date.getMonth();
+    if (!byMonth[mk]) byMonth[mk] = [];
+    byMonth[mk].push(s);
+  }
 
-    const isPast   = shiftEnd < now;
-    const isNow    = shiftStart <= now && shiftEnd >= now;
-    const isNext   = !isPast && !isNow;
+  let html = '';
+  for (const [mk, mshifts] of Object.entries(byMonth)) {
+    html += `<div class="month-title">${MONTHS_ES[mk].toUpperCase()}</div>`;
+    for (const s of mshifts) {
+      const shiftStart = new Date(s.date.getFullYear(), s.date.getMonth(), s.date.getDate(), s.turno.start);
+      const shiftEnd   = new Date(s.date.getFullYear(), s.date.getMonth(), s.date.getDate(), s.turno.end === 24 ? 23 : s.turno.end);
+      if (s.turno.end === 24) shiftEnd.setMinutes(59,59);
 
-    const dayName  = DAYS_ES[s.date.getDay()];
-    const dayNum   = s.date.getDate();
-    const monthStr = MONTHS_ES[s.date.getMonth()];
+      const isPast = shiftEnd < now;
+      const isNow  = shiftStart <= now && shiftEnd >= now;
+      const dayName = DAYS_ES[s.date.getDay()];
+      const monthStr = MONTHS_ES[s.date.getMonth()];
 
-    let cardClass = 'shift-card';
-    let badge = '';
-    if (isPast)  { cardClass += ' past'; badge = `<span class="shift-badge badge-done">Completado</span>`; }
-    if (isNow)   { cardClass += ' active-now'; badge = `<span class="shift-badge badge-now">● Ahora</span>`; }
+      let cardClass = 'shift-card';
+      let badge = '';
+      if (isPast) { cardClass += ' past'; badge = `<span class="shift-badge badge-done">Completado</span>`; }
+      if (isNow)  { cardClass += ' active-now'; badge = `<span class="shift-badge badge-now">● Ahora</span>`; }
 
-    return `<div class="${cardClass}">
-      <div class="shift-date-block">
-        <div class="shift-day-num">${dayNum}</div>
-        <div class="shift-day-name">${dayName.substring(0,3)}</div>
-      </div>
-      <div class="shift-info">
-        <div class="shift-time">${s.turno.label} hrs</div>
-        <div class="shift-date-full">${dayName} ${dayNum} de ${monthStr}</div>
-      </div>
-      ${badge}
-    </div>`;
-  }).join('');
+      html += `<div class="${cardClass}">
+        <div class="shift-date-block">
+          <div class="shift-day-num">${s.date.getDate()}</div>
+          <div class="shift-day-name">${dayName.substring(0,3)}</div>
+        </div>
+        <div class="shift-info">
+          <div class="shift-time">${s.turno.label} hrs</div>
+          <div class="shift-date-full">${dayName} ${s.date.getDate()} de ${monthStr}</div>
+        </div>
+        ${badge}
+      </div>`;
+    }
+  }
+  list.innerHTML = html;
 }
 
-function startCountdown(shifts, col) {
+function startCountdown(shifts) {
   if (countdownInterval) clearInterval(countdownInterval);
 
   function update() {
     const now = new Date();
     const card = document.getElementById('countdownCard');
-
-    // Find active or next shift
-    let activeShift = null;
-    let nextShift   = null;
+    let activeShift = null, nextShift = null;
 
     for (const s of shifts) {
       const shiftStart = new Date(s.date.getFullYear(), s.date.getMonth(), s.date.getDate(), s.turno.start);
       const shiftEnd   = new Date(s.date.getFullYear(), s.date.getMonth(), s.date.getDate(), s.turno.end === 24 ? 23 : s.turno.end);
       if (s.turno.end === 24) shiftEnd.setMinutes(59,59);
-
       if (shiftStart <= now && shiftEnd >= now) { activeShift = s; break; }
       if (shiftStart > now && !nextShift) nextShift = s;
     }
@@ -569,33 +517,24 @@ function startCountdown(shifts, col) {
       card.innerHTML = `
         <div class="countdown-label">Estado actual</div>
         <div class="on-duty">● ESTÁS DE GUARDIA</div>
-        <div class="countdown-detail">Terminas en ${h}h ${m}min · ${activeShift.turno.label} hrs</div>
-      `;
+        <div class="countdown-detail">Terminas en ${h}h ${m}min · ${activeShift.turno.label} hrs</div>`;
     } else if (nextShift) {
       const shiftStart = new Date(nextShift.date.getFullYear(), nextShift.date.getMonth(), nextShift.date.getDate(), nextShift.turno.start);
       const diff = shiftStart - now;
       const days = Math.floor(diff/86400000);
       const h    = Math.floor((diff%86400000)/3600000);
       const m    = Math.floor((diff%3600000)/60000);
-
-      let timeStr = '';
-      if (days > 0) timeStr = `${days}d ${h}h ${m}min`;
-      else timeStr = `${h}h ${m}min`;
-
+      const timeStr = days > 0 ? `${days}d ${h}h ${m}min` : `${h}h ${m}min`;
       const dayName  = DAYS_ES[nextShift.date.getDay()];
-      const dayNum   = nextShift.date.getDate();
       const monthStr = MONTHS_ES[nextShift.date.getMonth()];
-
       card.innerHTML = `
         <div class="countdown-label">Próxima guardia en</div>
         <div class="countdown-time">${timeStr}</div>
-        <div class="countdown-detail">${dayName} ${dayNum} de ${monthStr} · ${nextShift.turno.label} hrs</div>
-      `;
+        <div class="countdown-detail">${dayName} ${nextShift.date.getDate()} de ${monthStr} · ${nextShift.turno.label} hrs</div>`;
     } else {
       card.innerHTML = `
         <div class="countdown-label">Estado</div>
-        <div class="countdown-time" style="font-size:1rem;color:var(--muted)">Sin turnos pendientes en mayo</div>
-      `;
+        <div class="countdown-time" style="font-size:1rem;color:var(--muted)">Sin turnos pendientes</div>`;
     }
   }
 
