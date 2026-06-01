@@ -7,281 +7,65 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d0f14;
-    --surface: #161a22;
-    --surface2: #1e2330;
-    --border: #2a2f3d;
-    --accent: #e8c547;
-    --accent2: #e87d47;
-    --text: #eef0f5;
-    --muted: #6b7280;
-    --radius: 14px;
+    --bg: #0d0f14; --surface: #161a22; --surface2: #1e2330;
+    --border: #2a2f3d; --accent: #e8c547; --accent2: #e87d47;
+    --text: #eef0f5; --muted: #6b7280; --radius: 14px;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    min-height: 100vh;
-    padding: 0 0 60px;
-  }
-
-  header {
-    background: linear-gradient(135deg, #1a1f2e 0%, #0d0f14 100%);
-    border-bottom: 1px solid var(--border);
-    padding: 28px 20px 20px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  header h1 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 1.3rem;
-    letter-spacing: 0.05em;
-    color: var(--accent);
-    text-transform: uppercase;
-  }
-
-  header p {
-    font-size: 0.78rem;
-    color: var(--muted);
-    margin-top: 4px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; min-height: 100vh; padding: 0 0 60px; }
+  header { background: linear-gradient(135deg, #1a1f2e 0%, #0d0f14 100%); border-bottom: 1px solid var(--border); padding: 28px 20px 20px; text-align: center; position: sticky; top: 0; z-index: 100; }
+  header h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.3rem; letter-spacing: 0.05em; color: var(--accent); text-transform: uppercase; }
+  header p { font-size: 0.78rem; color: var(--muted); margin-top: 4px; letter-spacing: 0.08em; text-transform: uppercase; }
   .container { max-width: 480px; margin: 0 auto; padding: 0 16px; }
-
   .search-section { padding: 24px 0 12px; }
-
-  .search-label {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 10px;
-    display: block;
-  }
-
-  .search-box input {
-    width: 100%;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
+  .search-label { font-family: 'Syne', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: block; }
+  .search-box input { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.2s; }
   .search-box input:focus { border-color: var(--accent); }
   .search-box input::placeholder { color: var(--muted); }
-
-  .names-list {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    margin-top: 8px;
-    max-height: 280px;
-    overflow-y: auto;
-  }
-
-  .name-item {
-    padding: 13px 16px;
-    cursor: pointer;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.9rem;
-    transition: background 0.15s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
+  .names-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-top: 8px; max-height: 280px; overflow-y: auto; }
+  .name-item { padding: 13px 16px; cursor: pointer; border-bottom: 1px solid var(--border); font-size: 0.9rem; transition: background 0.15s; display: flex; align-items: center; gap: 10px; }
   .name-item:last-child { border-bottom: none; }
   .name-item:hover, .name-item:active { background: var(--surface2); }
-
   .name-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-
   .brigade-tag { font-size: 0.7rem; color: var(--muted); margin-left: auto; white-space: nowrap; }
-
   .profile { display: none; padding-top: 8px; }
   .profile.active { display: block; }
-
-  .back-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: none;
-    border: none;
-    color: var(--accent);
-    font-family: 'Syne', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    padding: 16px 0 12px;
-  }
-
-  .profile-header {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px;
-    margin-bottom: 16px;
-  }
-
-  .profile-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 6px;
-  }
-
-  .profile-brigade {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 4px 10px;
-    border-radius: 20px;
-    letter-spacing: 0.05em;
-  }
-
-  .countdown-card {
-    border-radius: var(--radius);
-    padding: 20px;
-    margin-bottom: 16px;
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-    background: var(--surface);
-  }
-
-  .countdown-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-  }
-
-  .countdown-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 10px;
-  }
-
-  .countdown-time {
-    font-family: 'Syne', sans-serif;
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--accent);
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-
+  .back-btn { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--accent); font-family: 'Syne', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; padding: 16px 0 12px; }
+  .profile-header { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
+  .profile-name { font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
+  .profile-brigade { display: inline-block; font-size: 0.75rem; font-weight: 500; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.05em; }
+  .countdown-card { border-radius: var(--radius); padding: 20px; margin-bottom: 16px; border: 1px solid var(--border); position: relative; overflow: hidden; background: var(--surface); }
+  .countdown-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+  .countdown-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .countdown-time { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; line-height: 1; }
   .countdown-detail { font-size: 0.82rem; color: var(--muted); margin-top: 8px; }
-
-  .on-duty {
-    color: var(--accent2);
-    font-family: 'Syne', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    animation: pulse 1.5s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
-  }
-
-  .month-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 20px 0 10px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .shifts-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 12px;
-  }
-
-  .shift-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    transition: border-color 0.2s;
-  }
-
+  .on-duty { color: var(--accent2); font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+  .month-title { font-family: 'Syne', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin: 20px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  .shifts-title { font-family: 'Syne', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .shift-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 10px; display: flex; align-items: center; gap: 14px; }
   .shift-card.past { opacity: 0.4; }
-  .shift-card.next { border-color: var(--accent); }
   .shift-card.active-now { border-color: var(--accent2); background: rgba(232,125,71,0.08); }
-
   .shift-date-block { text-align: center; min-width: 44px; }
-
-  .shift-day-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 800;
-    line-height: 1;
-    color: var(--accent);
-  }
-
+  .shift-day-num { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; line-height: 1; color: var(--accent); }
   .shift-card.active-now .shift-day-num { color: var(--accent2); }
-
   .shift-day-name { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-
   .shift-info { flex: 1; }
-
   .shift-time { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 2px; }
-
   .shift-date-full { font-size: 0.78rem; color: var(--muted); }
-
   .shift-badge { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; }
-
-  .badge-next { background: rgba(232,197,71,0.15); color: var(--accent); }
-  .badge-now  { background: rgba(232,125,71,0.2); color: var(--accent2); }
+  .badge-now { background: rgba(232,125,71,0.2); color: var(--accent2); }
   .badge-done { background: rgba(107,114,128,0.15); color: var(--muted); }
-
   .empty { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 0.9rem; }
-
   .names-list::-webkit-scrollbar { width: 4px; }
-  .names-list::-webkit-scrollbar-track { background: transparent; }
   .names-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 </style>
 </head>
 <body>
-
 <header>
   <h1>⚑ Rol de Guardias</h1>
   <p>Huelga · Mayo–Junio 2026</p>
 </header>
-
 <div class="container">
   <div id="searchView">
     <div class="search-section">
@@ -292,7 +76,6 @@
     </div>
     <div class="names-list" id="namesList"></div>
   </div>
-
   <div class="profile" id="profileView">
     <button class="back-btn" onclick="goBack()">← Volver</button>
     <div class="profile-header" id="profileHeader"></div>
@@ -301,75 +84,59 @@
     <div id="shiftsList"></div>
   </div>
 </div>
-
 <script>
 const BRIGADE_COLORS = {
-  "Brigada 01": {bg:"#1F7A4A", fg:"#FFFFFF"},
-  "Brigada 02": {bg:"#4472C4", fg:"#FFFFFF"},
-  "Brigada 03": {bg:"#7F7F7F", fg:"#FFFFFF"},
-  "Brigada 04": {bg:"#ED7D31", fg:"#FFFFFF"},
-  "Brigada 05": {bg:"#70AD47", fg:"#FFFFFF"},
-  "Brigada 06": {bg:"#C00000", fg:"#FFFFFF"},
-  "Brigada 07": {bg:"#9DC3E6", fg:"#000000"},
-  "Brigada 08": {bg:"#FFD966", fg:"#000000"},
-  "Brigada 09": {bg:"#548235", fg:"#FFFFFF"},
-  "Brigada 10": {bg:"#FF0000", fg:"#FFFFFF"},
-  "Brigada 11": {bg:"#BF8F00", fg:"#FFFFFF"},
-  "Brigada 12": {bg:"#595959", fg:"#FFFFFF"},
-  "Brigada 13": {bg:"#F4B942", fg:"#000000"},
-  "Brigada 14": {bg:"#2E4057", fg:"#FFFFFF"},
-  "Brigada 15": {bg:"#A9D18E", fg:"#000000"},
-  "Brigada 16": {bg:"#843C0C", fg:"#FFFFFF"},
+  "Brigada 01":{bg:"#1F7A4A",fg:"#FFFFFF"}, "Brigada 02":{bg:"#4472C4",fg:"#FFFFFF"},
+  "Brigada 03":{bg:"#7F7F7F",fg:"#FFFFFF"}, "Brigada 04":{bg:"#ED7D31",fg:"#FFFFFF"},
+  "Brigada 05":{bg:"#70AD47",fg:"#FFFFFF"}, "Brigada 06":{bg:"#C00000",fg:"#FFFFFF"},
+  "Brigada 07":{bg:"#9DC3E6",fg:"#000000"}, "Brigada 08":{bg:"#FFD966",fg:"#000000"},
+  "Brigada 09":{bg:"#548235",fg:"#FFFFFF"}, "Brigada 10":{bg:"#FF0000",fg:"#FFFFFF"},
+  "Brigada 11A":{bg:"#BF8F00",fg:"#FFFFFF"}, "Brigada 11B":{bg:"#BF8F00",fg:"#FFFFFF"},
+  "Brigada 12":{bg:"#595959",fg:"#FFFFFF"}, "Brigada 13":{bg:"#F4B942",fg:"#000000"},
+  "Brigada 14":{bg:"#2E4057",fg:"#FFFFFF"}, "Brigada 15":{bg:"#A9D18E",fg:"#000000"},
+  "Brigada 16":{bg:"#843C0C",fg:"#FFFFFF"},
 };
 
 const BRIGADES = {
-  "Brigada 01": ["ARODI MORALES HOLGUÍN","LUIS ANTONIO URÍAS DE LA VEGA","JOSÉ JORGE ABRIL HOYOS","IVAN ERNESTO ESCALANTE LEY"],
-  "Brigada 02": ["ERÉNDIRA TREVIÑO BASULTO","MARÍA ELSA ITURBE BONILLA","TAMY GABRIELA RÍOS SOTO","VLADIMIR CASAS FÉLIX"],
-  "Brigada 03": ["IVONNE ELISA ÁLVAREZ VALENZUELA","ORALIA JIMENA CHÁVEZ ORDUÑO","ANA MELISSA CAMPA SÁNCHEZ","GUSTAVO ADOLFO SALAS MINJAREZ"],
-  "Brigada 04": ["LUZ DEL CARMEN AYÓN MUNGUÍA","GIOVANNA SÁNCHEZ GALINDO","ROSA MARÍA MENDOZA ROBLES","SANDRA LUZ GUERRERO MARTÍNEZ"],
-  "Brigada 05": ["DANIEL FRANCO GARZA","RAÚL ISMAEL ROMANDÍA MANZO","ALFREDO VILLEGAS KURAICA","RAÚL ISIDRO GUTIÉRREZ RUIZ"],
-  "Brigada 06": ["ANA CRISTINA SOTELO MUNDO","EDNA GUADALUPE TÉLLEZ MORALES","LUISA MARÍA GUTIÉRREZ SÁNCHEZ","ANDRÉS ABRAHAM ELIZALDE GARCÍA"],
-  "Brigada 07": ["LAURA MERCADO MALDONADO","FERNANDO SALDAÑA CÓRDOBA","MIGUEL NAVARRO VELÁSQUEZ","ROCÍO DE FÁTIMA SÁNCHEZ CASTILLO"],
-  "Brigada 08": ["DARÍO SOTELO BADILLA","EUGENIO ROBERTO MARCOR RAMÍREZ","JOSÉ LUIS CORONADO ROMERO","LUIS RAMÓN PELLAT MOLINA"],
-  "Brigada 09": ["GABRIEL MENDOZA MORALES","SAÚL MANUEL ESPARZA LOZANO","PATRICIA SANDOVAL MURILLO","ÓSCAR ARMANDO PRECIADO PÉREZ"],
-  "Brigada 10": ["CARMEN EUGENIA VALENCIA GRACIA","MARTHA MARTINA ROBLES BALDENEGRO","EDITH JAQUELINE ROMERO GARCÍA","MARÍA DE LA CONCEPCIÓN HURTADO ABRIL"],
-  "Brigada 11": ["ALEJANDRO PUEBLA GUTIÉRREZ","URIEL BULMARO NERI MARTÍNEZ","FRANCISCO LÓPEZ BRAMBILA","JULIO CÉSAR MARCOR RAMÍREZ"],
-  "Brigada 12": ["MÓNICA FERNANDA PALACIOS GURROLA","JESÚS ROMÁN RUIZ ALDUENDA","NOEL ARMANDO CORONA URQUIJO","NORA ERICKA PARRA CANO"],
-  "Brigada 13": ["ARLET ALEJANDRA CHÁVEZ BARCELÓ","CECILIA MARÍA GALINDO BORBÓN","BEATRÍZ CLEMENTE MARROQUÍN","MARTÍN FERNANDO CONTRERAS VALENZUELA"],
-  "Brigada 14": ["RAMIRO WALTERS CARMELO","FRANCISCO GONZÁLEZ LÓPEZ","JOSÉ MANUEL OCHOA DE LA TORRE","DANIEL RUIZ LUCERO"],
-  "Brigada 15": ["RITO EMILIO SALAZAR RUIBAL","LILIAM NOHEMÍ URÍAS GÁMEZ","KARLA INÉS YESCAS FLORES","DANIELA CASTILLO BAÑUELOS"],
-  "Brigada 16": ["JOSÉ EDUARDO PUENTE MOLINA","ALONSO GARCÍA ACEVES","ÓSCAR EDGAR PALAFOX FLORES","MARIO YADIR RENDÓN SALLARD"],
+  "Brigada 01":["ARODI MORALES HOLGUÍN","LUIS ANTONIO URÍAS DE LA VEGA","JOSÉ JORGE ABRIL HOYOS","IVAN ERNESTO ESCALANTE LEY"],
+  "Brigada 02":["ERÉNDIRA TREVIÑO BASULTO","MARÍA ELSA ITURBE BONILLA"],
+  "Brigada 03":["IVONNE ELISA ÁLVAREZ VALENZUELA","ORALIA JIMENA CHÁVEZ ORDUÑO","ANA MELISSA CAMPA SÁNCHEZ","GUSTAVO ADOLFO SALAS MINJAREZ"],
+  "Brigada 04":["LUZ DEL CARMEN AYÓN MUNGUÍA","GIOVANNA SÁNCHEZ GALINDO","ROSA MARÍA MENDOZA ROBLES","SANDRA LUZ GUERRERO MARTÍNEZ"],
+  "Brigada 05":["DANIEL FRANCO GARZA","RAÚL ISMAEL ROMANDÍA MANZO","ALFREDO VILLEGAS KURAICA","RAÚL ISIDRO GUTIÉRREZ RUIZ"],
+  "Brigada 06":["ANA CRISTINA SOTELO MUNDO","EDNA GUADALUPE TÉLLEZ MORALES","LUISA MARÍA GUTIÉRREZ SÁNCHEZ","ANDRÉS ABRAHAM ELIZALDE GARCÍA"],
+  "Brigada 07":["LAURA MERCADO MALDONADO","FERNANDO SALDAÑA CÓRDOBA","MIGUEL NAVARRO VELÁSQUEZ","ROCÍO DE FÁTIMA SÁNCHEZ CASTILLO"],
+  "Brigada 08":["DARÍO SOTELO BADILLA","EUGENIO ROBERTO MARCOR RAMÍREZ","JOSÉ LUIS CORONADO ROMERO","LUIS RAMÓN PELLAT MOLINA"],
+  "Brigada 09":["GABRIEL MENDOZA MORALES","SAÚL MANUEL ESPARZA LOZANO","PATRICIA SANDOVAL MURILLO","ÓSCAR ARMANDO PRECIADO PÉREZ"],
+  "Brigada 10":["CARMEN EUGENIA VALENCIA GRACIA","MARTHA MARTINA ROBLES BALDENEGRO","EDITH JAQUELINE ROMERO GARCÍA","MARÍA DE LA CONCEPCIÓN HURTADO ABRIL"],
+  "Brigada 11A":["TAMY GABRIELA RÍOS SOTO","VLADIMIR CASAS FÉLIX"],
+  "Brigada 11B":["URIEL BULMARO NERI MARTÍNEZ","JULIO CÉSAR MARCOR RAMÍREZ"],
+  "Brigada 12":["MÓNICA FERNANDA PALACIOS GURROLA","JESÚS ROMÁN RUIZ ALDUENDA","NOEL ARMANDO CORONA URQUIJO","NORA ERICKA PARRA CANO"],
+  "Brigada 13":["ARLET ALEJANDRA CHÁVEZ BARCELÓ","CECILIA MARÍA GALINDO BORBÓN","BEATRÍZ CLEMENTE MARROQUÍN","MARTÍN FERNANDO CONTRERAS VALENZUELA"],
+  "Brigada 14":["RAMIRO WALTERS CARMELO","FRANCISCO GONZÁLEZ LÓPEZ","JOSÉ MANUEL OCHOA DE LA TORRE","DANIEL RUIZ LUCERO"],
+  "Brigada 15":["RITO EMILIO SALAZAR RUIBAL","LILIAM NOHEMÍ URÍAS GÁMEZ","KARLA INÉS YESCAS FLORES","DANIELA CASTILLO BAÑUELOS"],
+  "Brigada 16":["JOSÉ EDUARDO PUENTE MOLINA","ALONSO GARCÍA ACEVES","ÓSCAR EDGAR PALAFOX FLORES","MARIO YADIR RENDÓN SALLARD"],
 };
 
-const CYCLE = [
-  "Brigada 01","Brigada 05","Brigada 02","Brigada 03","Brigada 16",
-  "Brigada 08","Brigada 04","Brigada 06","Brigada 09","Brigada 11",
-  "Brigada 07","Brigada 10","Brigada 12","Brigada 14","Brigada 15","Brigada 13"
-];
-
-const TURNOS = [
-  {label:"0:00 a 06:00", start:0,  end:6},
-  {label:"06:00 a 12:00", start:6,  end:12},
-  {label:"12:00 a 18:00", start:12, end:18},
-  {label:"18:00 a 24:00", start:18, end:24},
-];
-
+const CYCLE = ["Brigada 01","Brigada 05","Brigada 02","Brigada 03","Brigada 16","Brigada 08","Brigada 04","Brigada 06","Brigada 09","Brigada 11","Brigada 07","Brigada 10","Brigada 12","Brigada 14","Brigada 15","Brigada 13"];
+const TURNOS = [{label:"0:00 a 06:00",start:0,end:6},{label:"06:00 a 12:00",start:6,end:12},{label:"12:00 a 18:00",start:12,end:18},{label:"18:00 a 24:00",start:18,end:24}];
 const DAYS_ES = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
 const MONTHS_ES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
 
 function buildSlotMap() {
   const map = {};
-  const start = new Date(2026, 4, 14);
-  const end   = new Date(2026, 5, 30); // June 30
-  let cycleIdx = 0;
-  let firstDay = true;
-
-  for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-    const startTurno = firstDay ? 3 : 0;
+  const start = new Date(2026,4,14);
+  const end   = new Date(2026,5,30);
+  let cycleIdx = 0, b11count = 0, firstDay = true;
+  for (let d = new Date(start); d <= end; d.setDate(d.getDate()+1)) {
+    const startT = firstDay ? 3 : 0;
     firstDay = false;
-    for (let t = startTurno; t < 4; t++) {
-      const key = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}-${t}`;
-      map[key] = CYCLE[cycleIdx % CYCLE.length];
+    for (let t = startT; t < 4; t++) {
+      let brig = CYCLE[cycleIdx % CYCLE.length];
+      if (brig === "Brigada 11") {
+        brig = b11count % 2 === 0 ? "Brigada 11A" : "Brigada 11B";
+        b11count++;
+      }
+      map[`${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}-${t}`] = brig;
       cycleIdx++;
     }
   }
@@ -378,23 +145,29 @@ function buildSlotMap() {
 
 const slotMap = buildSlotMap();
 
-function getShiftsForBrigade(brigade) {
+function getShiftsForPerson(name) {
+  // Find which brigade(s) this person belongs to
+  const myBrigades = [];
+  for (const [brig, members] of Object.entries(BRIGADES)) {
+    if (members.includes(name)) myBrigades.push(brig);
+  }
   const shifts = [];
   for (const [key, brig] of Object.entries(slotMap)) {
-    if (brig === brigade) {
-      const [y, m, d, t] = key.split('-').map(Number);
-      shifts.push({ date: new Date(y, m-1, d), turnoIdx: t, turno: TURNOS[t] });
+    if (myBrigades.includes(brig)) {
+      const [y,m,d,t] = key.split('-').map(Number);
+      shifts.push({date:new Date(y,m-1,d), turnoIdx:t, turno:TURNOS[t], brig});
     }
   }
-  shifts.sort((a,b) => a.date - b.date || a.turnoIdx - b.turnoIdx);
+  shifts.sort((a,b) => a.date-b.date || a.turnoIdx-b.turnoIdx);
   return shifts;
 }
 
 const personBrigade = {};
 for (const [brig, members] of Object.entries(BRIGADES)) {
-  for (const name of members) personBrigade[name] = brig;
+  for (const name of members) {
+    if (!personBrigade[name]) personBrigade[name] = brig;
+  }
 }
-
 const allNames = Object.keys(personBrigade).sort();
 
 const searchInput = document.getElementById('searchInput');
@@ -403,13 +176,10 @@ const searchView  = document.getElementById('searchView');
 const profileView = document.getElementById('profileView');
 let countdownInterval = null;
 
-function renderNames(filter = '') {
+function renderNames(filter='') {
   const q = filter.toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
   const filtered = allNames.filter(n => n.normalize("NFD").replace(/[\u0300-\u036f]/g,"").includes(q));
-  if (filtered.length === 0) {
-    namesList.innerHTML = `<div class="empty">No se encontró ningún nombre</div>`;
-    return;
-  }
+  if (!filtered.length) { namesList.innerHTML=`<div class="empty">No se encontró ningún nombre</div>`; return; }
   namesList.innerHTML = filtered.map(name => {
     const brig = personBrigade[name];
     const col = BRIGADE_COLORS[brig];
@@ -425,18 +195,14 @@ searchInput.addEventListener('input', () => renderNames(searchInput.value));
 renderNames();
 
 function showProfile(name) {
-  const brigade = personBrigade[name];
-  const col = BRIGADE_COLORS[brigade];
-  const shifts = getShiftsForBrigade(brigade);
-
+  const brig = personBrigade[name];
+  const col = BRIGADE_COLORS[brig];
+  const shifts = getShiftsForPerson(name);
   searchView.style.display = 'none';
   profileView.classList.add('active');
-
   document.getElementById('profileHeader').innerHTML = `
     <div class="profile-name">${name}</div>
-    <span class="profile-brigade" style="background:${col.bg};color:${col.fg}">${brigade}</span>
-  `;
-
+    <span class="profile-brigade" style="background:${col.bg};color:${col.fg}">${brig}</span>`;
   renderShifts(shifts);
   startCountdown(shifts);
 }
@@ -444,38 +210,26 @@ function showProfile(name) {
 function renderShifts(shifts) {
   const now = new Date();
   const list = document.getElementById('shiftsList');
-
-  if (shifts.length === 0) {
-    list.innerHTML = `<div class="empty">No hay turnos asignados</div>`;
-    return;
-  }
-
-  // Group by month
+  if (!shifts.length) { list.innerHTML=`<div class="empty">No hay turnos asignados</div>`; return; }
   const byMonth = {};
   for (const s of shifts) {
     const mk = s.date.getMonth();
     if (!byMonth[mk]) byMonth[mk] = [];
     byMonth[mk].push(s);
   }
-
   let html = '';
   for (const [mk, mshifts] of Object.entries(byMonth)) {
     html += `<div class="month-title">${MONTHS_ES[mk].toUpperCase()}</div>`;
     for (const s of mshifts) {
-      const shiftStart = new Date(s.date.getFullYear(), s.date.getMonth(), s.date.getDate(), s.turno.start);
-      const shiftEnd   = new Date(s.date.getFullYear(), s.date.getMonth(), s.date.getDate(), s.turno.end === 24 ? 23 : s.turno.end);
-      if (s.turno.end === 24) shiftEnd.setMinutes(59,59);
-
+      const shiftStart = new Date(s.date.getFullYear(),s.date.getMonth(),s.date.getDate(),s.turno.start);
+      const shiftEnd   = new Date(s.date.getFullYear(),s.date.getMonth(),s.date.getDate(),s.turno.end===24?23:s.turno.end);
+      if (s.turno.end===24) shiftEnd.setMinutes(59,59);
       const isPast = shiftEnd < now;
       const isNow  = shiftStart <= now && shiftEnd >= now;
-      const dayName = DAYS_ES[s.date.getDay()];
+      const dayName  = DAYS_ES[s.date.getDay()];
       const monthStr = MONTHS_ES[s.date.getMonth()];
-
-      let cardClass = 'shift-card';
-      let badge = '';
-      if (isPast) { cardClass += ' past'; badge = `<span class="shift-badge badge-done">Completado</span>`; }
-      if (isNow)  { cardClass += ' active-now'; badge = `<span class="shift-badge badge-now">● Ahora</span>`; }
-
+      let cardClass = 'shift-card' + (isPast?' past':'') + (isNow?' active-now':'');
+      let badge = isPast ? `<span class="shift-badge badge-done">Completado</span>` : isNow ? `<span class="shift-badge badge-now">● Ahora</span>` : '';
       html += `<div class="${cardClass}">
         <div class="shift-date-block">
           <div class="shift-day-num">${s.date.getDate()}</div>
@@ -484,9 +238,7 @@ function renderShifts(shifts) {
         <div class="shift-info">
           <div class="shift-time">${s.turno.label} hrs</div>
           <div class="shift-date-full">${dayName} ${s.date.getDate()} de ${monthStr}</div>
-        </div>
-        ${badge}
-      </div>`;
+        </div>${badge}</div>`;
     }
   }
   list.innerHTML = html;
@@ -494,50 +246,32 @@ function renderShifts(shifts) {
 
 function startCountdown(shifts) {
   if (countdownInterval) clearInterval(countdownInterval);
-
   function update() {
     const now = new Date();
     const card = document.getElementById('countdownCard');
-    let activeShift = null, nextShift = null;
-
+    let activeShift=null, nextShift=null;
     for (const s of shifts) {
-      const shiftStart = new Date(s.date.getFullYear(), s.date.getMonth(), s.date.getDate(), s.turno.start);
-      const shiftEnd   = new Date(s.date.getFullYear(), s.date.getMonth(), s.date.getDate(), s.turno.end === 24 ? 23 : s.turno.end);
-      if (s.turno.end === 24) shiftEnd.setMinutes(59,59);
-      if (shiftStart <= now && shiftEnd >= now) { activeShift = s; break; }
-      if (shiftStart > now && !nextShift) nextShift = s;
+      const ss = new Date(s.date.getFullYear(),s.date.getMonth(),s.date.getDate(),s.turno.start);
+      const se = new Date(s.date.getFullYear(),s.date.getMonth(),s.date.getDate(),s.turno.end===24?23:s.turno.end);
+      if (s.turno.end===24) se.setMinutes(59,59);
+      if (ss<=now && se>=now) { activeShift=s; break; }
+      if (ss>now && !nextShift) nextShift=s;
     }
-
     if (activeShift) {
-      const shiftEnd = new Date(activeShift.date.getFullYear(), activeShift.date.getMonth(), activeShift.date.getDate(), activeShift.turno.end === 24 ? 23 : activeShift.turno.end);
-      if (activeShift.turno.end === 24) shiftEnd.setMinutes(59,59);
-      const diff = shiftEnd - now;
-      const h = Math.floor(diff/3600000);
-      const m = Math.floor((diff%3600000)/60000);
-      card.innerHTML = `
-        <div class="countdown-label">Estado actual</div>
-        <div class="on-duty">● ESTÁS DE GUARDIA</div>
-        <div class="countdown-detail">Terminas en ${h}h ${m}min · ${activeShift.turno.label} hrs</div>`;
+      const se = new Date(activeShift.date.getFullYear(),activeShift.date.getMonth(),activeShift.date.getDate(),activeShift.turno.end===24?23:activeShift.turno.end);
+      if (activeShift.turno.end===24) se.setMinutes(59,59);
+      const diff=se-now, h=Math.floor(diff/3600000), m=Math.floor((diff%3600000)/60000);
+      card.innerHTML=`<div class="countdown-label">Estado actual</div><div class="on-duty">● ESTÁS DE GUARDIA</div><div class="countdown-detail">Terminas en ${h}h ${m}min · ${activeShift.turno.label} hrs</div>`;
     } else if (nextShift) {
-      const shiftStart = new Date(nextShift.date.getFullYear(), nextShift.date.getMonth(), nextShift.date.getDate(), nextShift.turno.start);
-      const diff = shiftStart - now;
-      const days = Math.floor(diff/86400000);
-      const h    = Math.floor((diff%86400000)/3600000);
-      const m    = Math.floor((diff%3600000)/60000);
-      const timeStr = days > 0 ? `${days}d ${h}h ${m}min` : `${h}h ${m}min`;
-      const dayName  = DAYS_ES[nextShift.date.getDay()];
-      const monthStr = MONTHS_ES[nextShift.date.getMonth()];
-      card.innerHTML = `
-        <div class="countdown-label">Próxima guardia en</div>
-        <div class="countdown-time">${timeStr}</div>
-        <div class="countdown-detail">${dayName} ${nextShift.date.getDate()} de ${monthStr} · ${nextShift.turno.label} hrs</div>`;
+      const ss = new Date(nextShift.date.getFullYear(),nextShift.date.getMonth(),nextShift.date.getDate(),nextShift.turno.start);
+      const diff=ss-now, days=Math.floor(diff/86400000), h=Math.floor((diff%86400000)/3600000), m=Math.floor((diff%3600000)/60000);
+      const timeStr = days>0?`${days}d ${h}h ${m}min`:`${h}h ${m}min`;
+      const dayName=DAYS_ES[nextShift.date.getDay()], monthStr=MONTHS_ES[nextShift.date.getMonth()];
+      card.innerHTML=`<div class="countdown-label">Próxima guardia en</div><div class="countdown-time">${timeStr}</div><div class="countdown-detail">${dayName} ${nextShift.date.getDate()} de ${monthStr} · ${nextShift.turno.label} hrs</div>`;
     } else {
-      card.innerHTML = `
-        <div class="countdown-label">Estado</div>
-        <div class="countdown-time" style="font-size:1rem;color:var(--muted)">Sin turnos pendientes</div>`;
+      card.innerHTML=`<div class="countdown-label">Estado</div><div class="countdown-time" style="font-size:1rem;color:var(--muted)">Sin turnos pendientes</div>`;
     }
   }
-
   update();
   countdownInterval = setInterval(update, 30000);
 }
@@ -545,8 +279,8 @@ function startCountdown(shifts) {
 function goBack() {
   if (countdownInterval) clearInterval(countdownInterval);
   profileView.classList.remove('active');
-  searchView.style.display = '';
-  searchInput.value = '';
+  searchView.style.display='';
+  searchInput.value='';
   renderNames();
 }
 </script>
